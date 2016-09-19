@@ -31,3 +31,30 @@ var popularMediaType = from x in MediaTypes
 						};
 						
 	popularMediaType.Dump();
+	
+	// can this set of statements be done as one complete  query
+	// the answer is possibly and in this case yes
+	// in this example maxCount could be  exchanged for the query that 
+	// actually created the value in the first place 
+var popularMediaTypeSubQuery = from x in MediaTypes
+						where x.Tracks.Count() == (from y in MediaTypes 
+													select y.Tracks.Count()).Max()
+						select new{
+								Type = x.Name,
+								TypeCount = x.Tracks.Count()
+						};
+						
+	popularMediaTypeSubQuery.Dump();
+
+
+//using the method syntax to determine the count value for the wehre
+//expression this demonstrates that querys can be constructed
+var popularMediaTypeSubMethod = from x in MediaTypes
+						where x.Tracks.Count() == 
+										MediaTypes.Select (my => mt.Tracks.Count()).Max
+						select new{
+								Type = x.Name,
+								TypeCount = x.Tracks.Count()
+						};
+						
+	popularMediaTypeSubMethod.Dump();
