@@ -21,6 +21,8 @@ void Main()
 					};
 						
 	WaiterWMostBills.Dump();
+	var ParamMonth = 4;
+	var ParamYear = 2014;
 	
 	var WaiterBills = from x in Waiters
 					where x.LastName.Contains("a")
@@ -31,6 +33,8 @@ void Main()
 						TotalBillCount = x.Bills.Count(),
 						BillInfo = (from y in Bills
 								where y.BillItems.Count() > 0
+								&& y.BillDate.Month == DateTime.Today.Month - ParamMonth
+								&& y.BillDate.Year ==  ParamYear
 								select new BillItemSummary{
 										BillID = y.BillID,
 										BillDate = y.BillDate,

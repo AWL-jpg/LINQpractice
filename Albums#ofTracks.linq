@@ -1,12 +1,12 @@
 <Query Kind="Statements">
   <Connection>
-    <ID>86381896-2b80-4fe2-bf17-dc9c67230fb7</ID>
+    <ID>15f27851-d6c8-4ad3-8dc1-b20f2f7dad91</ID>
     <Persist>true</Persist>
     <Server>.</Server>
     <Database>Chinook</Database>
+    <ShowServer>true</ShowServer>
   </Connection>
 </Query>
-
 
 //use of aggragates(one of which is .Count()) in queries
 //.Count() counts the number of instances of the collection reference
@@ -23,5 +23,3 @@ select new{
 	AverageTrackLengthInSecondsB = x.Tracks.Average(y => y.Milliseconds/1000)// equation is now inside the delagate making the average less precise 
 }
 // MEDIA TYPE WITH THE MOST TRACKS FOR MONDAY
-
-
