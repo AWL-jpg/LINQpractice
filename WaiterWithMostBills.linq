@@ -20,7 +20,7 @@ WaiterWMostBills.Dump();
 //create a dataset which contains the summary bill info by waiter
 var WaiterBills = from x in Waiters 
 					orderby x.LastName,
-							X.FirstName
+							x.FirstName
 					select new {
 					Name = x.LastName + "," + x.FirstName,
 					BillInfo = (from y in Bills
@@ -29,7 +29,8 @@ var WaiterBills = from x in Waiters
 										BillID = y.BillID,
 										BillDate = y.BillDate,
 										TableID = y.TableID,
-										Total = y.BillItems.Sum(b => b.SalesPrice *b.Quantity)
+										Total = y.BillItems.Sum(b => b.SalePrice *b.Quantity)
 										}
 								)
 							};
+	WaiterBills.Dump();
