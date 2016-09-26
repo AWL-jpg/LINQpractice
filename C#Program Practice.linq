@@ -1,8 +1,8 @@
 <Query Kind="Program">
   <Connection>
-    <ID>6854e270-6550-409b-8626-36ea9385150a</ID>
+    <ID>707d052c-7699-4981-b5f2-c557c946c77f</ID>
     <Persist>true</Persist>
-    <Server>.</Server>
+    <Server>DESKTOP-LRVKLQP\SQLEXPRESS</Server>
     <Database>eRestaurant</Database>
   </Connection>
 </Query>
@@ -67,24 +67,3 @@ public class BillItemSummary
 	public int TotalBillCount{get;set;}
 	public List<BillItemSummary> BillInfo{get;set;}
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
